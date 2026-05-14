@@ -143,8 +143,20 @@
     }
     .avatar-detail { text-align: center; color: var(--muted); font-size: 0.95rem; }
 
-    /* DIAGNOSTIC */
-    .diag-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    /* TEAM */
+    .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
+    @media(max-width:900px) { .team-grid { grid-template-columns: 1fr; } }
+    .team-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+    .team-card-main { border-color: rgba(230,57,70,0.3); }
+    .team-photo-wrap { width: 100%; height: 240px; overflow: hidden; background: var(--dark); }
+    .team-photo { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    .team-placeholder-photo { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 4rem; color: var(--border); background: var(--dark); }
+    .team-info { padding: 1.5rem; }
+    .team-info h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.25rem; }
+    .team-title { font-size: 0.8rem; font-weight: 600; color: var(--red); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.75rem; }
+    .team-info p { font-size: 0.85rem; color: var(--muted); line-height: 1.65; }
+
+    .diag-cta-box { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
     @media(max-width:768px) { .diag-inner { grid-template-columns: 1fr; } }
     .diag-cta-box {
       background: rgba(230,57,70,0.08); border: 1px solid rgba(230,57,70,0.25);
@@ -532,6 +544,47 @@
           </div>
           <button type="submit" class="btn-primary form-submit">Book My Strategy Call</button>
         </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="section" id="team">
+  <div class="section-inner">
+    <div class="section-label" style="text-align:center">Meet The Team</div>
+    <h2 class="section-title" style="text-align:center">The People Running Your Sales Machine</h2>
+    <p class="section-sub" style="margin:0 auto 2.5rem;text-align:center">We've been where you are. We know what it takes to break through the plateau and build a sales engine that compounds. Here's who you'll be working with.</p>
+    <div class="team-grid">
+      <div class="team-card team-card-main">
+        <div class="team-photo-wrap">
+          <img src="https://raw.githubusercontent.com/joelsalespossible/sales-possible-site/master/jacob-griak.png" alt="Jacob Griak" class="team-photo">
+        </div>
+        <div class="team-info">
+          <h3>Jacob Griak</h3>
+          <div class="team-title">CEO & Sales Director</div>
+          <p>A sales director who specializes in rapidly scaling high ticket offers by identifying the constraint holding them back. Repeatedly added $200K+ in revenue within 90 days by optimizing sales systems, team performance, and offer execution. Over six years building and leading high performing sales teams. Focuses on turning inconsistent pipelines into predictable profit engines.</p>
+        </div>
+      </div>
+      <div class="team-card team-card-placeholder">
+        <div class="team-photo-wrap">
+          <div class="team-placeholder-photo">?</div>
+        </div>
+        <div class="team-info">
+          <h3>Coming Soon</h3>
+          <div class="team-title">Key Team Member</div>
+          <p>We're building out our leadership team with top-tier talent. Stay tuned for an announcement.</p>
+        </div>
+      </div>
+      <div class="team-card team-card-placeholder">
+        <div class="team-photo-wrap">
+          <div class="team-placeholder-photo">?</div>
+        </div>
+        <div class="team-info">
+          <h3>Coming Soon</h3>
+          <div class="team-title">Key Team Member</div>
+          <p>We're building out our leadership team with top-tier talent. Stay tuned for an announcement.</p>
+        </div>
       </div>
     </div>
   </div>
