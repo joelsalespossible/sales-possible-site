@@ -31,8 +31,8 @@
       display: flex; align-items: center; justify-content: space-between;
     }
     .nav-logo { display: flex; align-items: center; gap: 0.75rem; }
-    .nav-logo img { height: 40px; }
-    .nav-logo span { font-weight: 700; font-size: 1.1rem; letter-spacing: 0.05em; }
+    .nav-logo img { height: 44px; border-radius: 6px; }
+    .nav-logo span { font-weight: 800; font-size: 1rem; letter-spacing: 0.08em; }
     .nav-links { display: flex; gap: 2rem; align-items: center; }
     .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
     .nav-links a:hover { color: var(--white); }
@@ -58,8 +58,10 @@
       padding: 0.4rem 1rem; border-radius: 100px;
       font-size: 0.8rem; font-weight: 600; color: var(--red);
       text-transform: uppercase; letter-spacing: 0.08em;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
     }
+    .hero-logo-wrap { margin-bottom: 1.5rem; }
+    .hero-logo { height: 80px; border-radius: 10px; }
     .hero h1 {
       font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 900; line-height: 1.05;
       letter-spacing: -0.02em; margin-bottom: 1.5rem;
@@ -222,7 +224,7 @@
 
 <nav>
   <div class="nav-logo">
-    <img src="https://media.githubusercontent.com/media/jy0829/jy0829.github.io/main/SP_logo.png" alt="SP">
+    <img src="https://raw.githubusercontent.com/joelsalespossible/sales-possible-site/master/logo.png" alt="Sales Possible">
     <span>SALES POSSIBLE</span>
   </div>
   <div class="nav-links">
@@ -238,6 +240,7 @@
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-badge">Done For You Sales Agency</div>
+    <div class="hero-logo-wrap"><img src="https://raw.githubusercontent.com/joelsalespossible/sales-possible-site/master/logo.png" alt="Sales Possible" class="hero-logo"></div>
     <h1>Stop Trading Time<br>For <span class="red">Inconsistent Revenue</span></h1>
     <p class="hero-sub">You built the offer. You did the hard part. Now your sales is the constraint that's keeping you from the consistent months and record-breaking revenue you know you're capable of. We fix that. No staffing firms. No guesswork. Just a full outsourced sales team that performs.</p>
     <div class="hero-actions">
