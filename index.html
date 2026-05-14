@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sales Possible — Done For You Sales Agency</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: #fff; background: #050510; line-height: 1.6; }
+
+    :root {
+      --red: #E63946;
+      --red-dark: #c62833;
+      --dark: #050510;
+      --card: #0d0d1f;
+      --border: #1a1a2e;
+      --muted: #8888aa;
+      --white: #ffffff;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(5,5,16,0.9); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 0.75rem; }
+    .nav-logo img { height: 40px; }
+    .nav-logo span { font-weight: 700; font-size: 1.1rem; letter-spacing: 0.05em; }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta { background: var(--red); color: var(--white) !important; padding: 0.5rem 1.25rem; border-radius: 6px; font-weight: 600; transition: background 0.2s !important; }
+    .nav-cta:hover { background: var(--red-dark) !important; color: var(--white) !important; }
+    @media(max-width:768px) { .nav-links { display: none; } }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh; display: flex; align-items: center;
+      padding: 8rem 2rem 4rem;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(230,57,70,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; position: relative; z-index: 1; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(230,57,70,0.12); border: 1px solid rgba(230,57,70,0.3);
+      padding: 0.4rem 1rem; border-radius: 100px;
+      font-size: 0.8rem; font-weight: 600; color: var(--red);
+      text-transform: uppercase; letter-spacing: 0.08em;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 900; line-height: 1.05;
+      letter-spacing: -0.02em; margin-bottom: 1.5rem;
+    }
+    .hero h1 .red { color: var(--red); }
+    .hero-sub {
+      font-size: 1.2rem; color: var(--muted); max-width: 600px;
+      margin-bottom: 2.5rem; line-height: 1.7;
+    }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+    .btn-primary {
+      background: var(--red); color: var(--white); padding: 0.9rem 2rem;
+      border-radius: 8px; font-weight: 700; font-size: 1rem;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;
+      transition: background 0.2s, transform 0.2s; border: none; cursor: pointer;
+    }
+    .btn-primary:hover { background: var(--red-dark); transform: translateY(-1px); }
+    .btn-secondary {
+      background: transparent; color: var(--white); padding: 0.9rem 2rem;
+      border-radius: 8px; font-weight: 600; font-size: 1rem;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;
+      border: 1px solid var(--border); transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--muted); background: rgba(255,255,255,0.04); }
+    .hero-stats { display: flex; gap: 3rem; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); flex-wrap: wrap; }
+    .hero-stat-num { font-size: 1.8rem; font-weight: 800; color: var(--white); }
+    .hero-stat-label { font-size: 0.85rem; color: var(--muted); margin-top: 0.15rem; }
+
+    /* SECTION COMMON */
+    .section { padding: 6rem 2rem; }
+    .section-dark { background: var(--card); }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.75rem;
+      font-weight: 700; color: var(--red); margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem); font-weight: 800;
+      line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 1rem;
+    }
+    .section-sub { font-size: 1.1rem; color: var(--muted); max-width: 600px; line-height: 1.7; }
+
+    /* PROBLEM */
+    .problem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+    .problem-card {
+      background: var(--dark); border: 1px solid var(--border);
+      padding: 2rem; border-radius: 12px;
+    }
+    .problem-card .emoji { font-size: 2rem; margin-bottom: 1rem; display: block; }
+    .problem-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .problem-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+
+    /* FRAMEWORK */
+    .framework-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); margin-top: 3rem; border-radius: 12px; overflow: hidden; }
+    @media(max-width:900px) { .framework-steps { grid-template-columns: 1fr 1fr; } }
+    @media(max-width:500px) { .framework-steps { grid-template-columns: 1fr; } }
+    .framework-step { background: var(--card); padding: 2rem; position: relative; }
+    .step-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--red); color: var(--white); font-weight: 800; font-size: 0.85rem;
+      margin-bottom: 1.25rem;
+    }
+    .framework-step h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .framework-step p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+    .framework-step .step-detail { margin-top: 1rem; font-size: 0.8rem; color: var(--red); font-weight: 600; }
+
+    /* DIFFERENTIATORS */
+    .diff-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+    .diff-card { padding: 2rem; }
+    .diff-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .diff-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+
+    /* AVATAR */
+    .avatar-quote {
+      font-size: 1.3rem; font-weight: 600; line-height: 1.5;
+      color: var(--white); max-width: 800px; margin: 0 auto 2rem;
+      text-align: center;
+    }
+    .avatar-detail { text-align: center; color: var(--muted); font-size: 0.95rem; }
+
+    /* DIAGNOSTIC */
+    .diag-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    @media(max-width:768px) { .diag-inner { grid-template-columns: 1fr; } }
+    .diag-cta-box {
+      background: rgba(230,57,70,0.08); border: 1px solid rgba(230,57,70,0.25);
+      padding: 2.5rem; border-radius: 12px;
+    }
+    .diag-cta-box h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.75rem; }
+    .diag-cta-box p { font-size: 0.95rem; color: var(--muted); margin-bottom: 1.5rem; }
+    .form-field { margin-bottom: 1rem; }
+    .form-field label { display: block; font-size: 0.8rem; font-weight: 600; margin-bottom: 0.35rem; color: var(--muted); }
+    .form-field input, .form-field select, .form-field textarea {
+      width: 100%; padding: 0.7rem 1rem; border-radius: 6px;
+      background: var(--dark); border: 1px solid var(--border);
+      color: var(--white); font-size: 0.9rem; font-family: inherit;
+    }
+    .form-field input:focus, .form-field select:focus, .form-field textarea:focus {
+      outline: none; border-color: var(--red);
+    }
+    .form-field textarea { resize: vertical; min-height: 80px; }
+    .form-submit { width: 100%; margin-top: 0.5rem; }
+
+    /* RESULTS STRIP */
+    .results-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border-radius: 12px; overflow: hidden; }
+    @media(max-width:768px) { .results-strip { grid-template-columns: 1fr 1fr; } }
+    .result-item { background: var(--card); padding: 2rem; text-align: center; }
+    .result-item .num { font-size: 2.2rem; font-weight: 900; color: var(--red); }
+    .result-item .label { font-size: 0.8rem; color: var(--muted); margin-top: 0.4rem; text-transform: uppercase; letter-spacing: 0.06em; }
+
+    /* FAQ */
+    .faq-list { max-width: 700px; margin: 3rem auto 0; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-q { width: 100%; background: none; border: none; color: var(--white); padding: 1.25rem 0; font-size: 1rem; font-weight: 600; text-align: left; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: inherit; }
+    .faq-q:hover { color: var(--red); }
+    .faq-q .icon { font-size: 1.4rem; transition: transform 0.2s; }
+    .faq-item.open .icon { transform: rotate(45deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s; }
+    .faq-item.open .faq-a { max-height: 400px; }
+    .faq-a-inner { padding-bottom: 1.25rem; font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
+
+    /* FINAL CTA */
+    .cta-section {
+      background: radial-gradient(ellipse at 50% 50%, rgba(230,57,70,0.15) 0%, transparent 70%);
+      text-align: center; padding: 8rem 2rem;
+    }
+    .cta-section h2 { font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 900; line-height: 1.1; margin-bottom: 1rem; }
+    .cta-section p { color: var(--muted); font-size: 1.1rem; margin-bottom: 2rem; max-width: 550px; margin-left: auto; margin-right: auto; }
+    .cta-section .btn-primary { padding: 1rem 2.5rem; font-size: 1.1rem; }
+
+    /* FOOTER */
+    footer { background: var(--card); border-top: 1px solid var(--border); padding: 2rem; text-align: center; }
+    footer p { font-size: 0.8rem; color: var(--muted); }
+
+    /* PROCESS LIST */
+    .process-list { margin-top: 2.5rem; }
+    .process-item { display: flex; gap: 1.5rem; margin-bottom: 2rem; align-items: flex-start; }
+    .process-icon { flex-shrink: 0; width: 48px; height: 48px; border-radius: 50%; background: rgba(230,57,70,0.12); border: 1px solid rgba(230,57,70,0.25); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+    .process-item h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.25rem; }
+    .process-item p { font-size: 0.85rem; color: var(--muted); }
+
+    /* HOW IT WORKS */
+    .how-it-works { margin-top: 3rem; }
+    .hiw-row { display: grid; grid-template-columns: 1fr auto 1fr; gap: 1.5rem; align-items: center; margin-bottom: 2.5rem; }
+    .hiw-row:nth-child(even) { direction: rtl; }
+    .hiw-row:nth-child(even) .hiw-left { order: 2; }
+    .hiw-row:nth-child(even) .hiw-connector { order: 1; }
+    .hiw-row:nth-child(even) .hiw-right { order: 0; }
+    @media(max-width:768px) { .hiw-row { grid-template-columns: 1fr; } .hiw-row:nth-child(even) { direction: ltr; } }
+    .hiw-left h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .hiw-left p { font-size: 0.85rem; color: var(--muted); }
+    .hiw-connector { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; color: var(--red); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; }
+    .hiw-num { width: 40px; height: 40px; border-radius: 50%; background: var(--red); color: var(--white); display: flex; align-items: center; justify-content: center; font-weight: 800; }
+    .hiw-right { background: var(--card); border: 1px solid var(--border); padding: 1.5rem 2rem; border-radius: 12px; }
+    .hiw-right h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .hiw-right p { font-size: 0.85rem; color: var(--muted); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <img src="https://media.githubusercontent.com/media/jy0829/jy0829.github.io/main/SP_logo.png" alt="SP">
+    <span>SALES POSSIBLE</span>
+  </div>
+  <div class="nav-links">
+    <a href="#problem">The Problem</a>
+    <a href="#framework">How It Works</a>
+    <a href="#diff">Why Us</a>
+    <a href="#faq">FAQ</a>
+    <a href="#apply" class="nav-cta">Apply Now</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">Done For You Sales Agency</div>
+    <h1>Stop Trading Time<br>For <span class="red">Inconsistent Revenue</span></h1>
+    <p class="hero-sub">You built the offer. You did the hard part. Now your sales is the constraint that's keeping you from the consistent months and record-breaking revenue you know you're capable of. We fix that. No staffing firms. No guesswork. Just a full outsourced sales team that performs.</p>
+    <div class="hero-actions">
+      <a href="#apply" class="btn-primary">Book a Strategy Call</a>
+      <a href="#framework" class="btn-secondary">See How It Works</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">90 Days</div>
+        <div class="hero-stat-label">To consistent months</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">$200K+</div>
+        <div class="hero-stat-label">Average additional revenue</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">0</div>
+        <div class="hero-stat-label">Upfront cost to start</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="section" id="problem">
+  <div class="section-inner">
+    <div class="section-label">The Problem</div>
+    <h2 class="section-title">You're Not Broken. Your Sales System Is.</h2>
+    <p class="section-sub">Most offer owners at $100K/month feel stuck. They've tried everything. They think the issue is their funnel, their offer, their traffic. But the real problem? Their sales machine is broken and they can't see it from the inside.</p>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <span class="emoji">📉</span>
+        <h3>Inconsistent Months</h3>
+        <p>One month you're at $40K. The next you're back to $12K. You can't build a team, hire staff, or invest in growth when revenue swings like this.</p>
+      </div>
+      <div class="problem-card">
+        <span class="emoji">⏰</span>
+        <h3>Trapped In The Day-to-Day</h3>
+        <p>You're the closer, the manager, the closer, and the CS rep all at once. You're working in the business, not on it. And there's no end in sight.</p>
+      </div>
+      <div class="problem-card">
+        <span class="emoji">🚫</span>
+        <h3>Afraid To Scale</h3>
+        <p>You know you have a volume problem. But bringing in a flood of leads sounds terrifying because your delivery, your team, your systems... you don't trust them to handle it.</p>
+      </div>
+      <div class="problem-card">
+        <span class="emoji">🔄</span>
+        <h3>Every Hire Feels Like A Gamble</h3>
+        <p>You've hired before. It didn't work. So now you're gun-shy. You either avoid hiring altogether or you under-hire and stay stuck.</p>
+      </div>
+      <div class="problem-card">
+        <span class="emoji">🧩</span>
+        <h3>You Don't Know Your Real Constraint</h3>
+        <p>Is it setter quality? Closer training? Comp plan? Calendar management? Funnel leak somewhere? You think you know. But you don't. And you won't until someone with fresh eyes audits the whole thing.</p>
+      </div>
+      <div class="problem-card">
+        <span class="emoji">😤</span>
+        <h3>Burnout Is Real</h3>
+        <p>You're exhausted. Running sales AND delivery AND operations is a full-time job times three. Something has to give. Usually it's your numbers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AVATAR -->
+<section class="section section-dark" id="who">
+  <div class="section-inner" style="text-align:center">
+    <div class="section-label">Who This Is For</div>
+    <p class="avatar-quote">"Every offer owner wants to scale to a million a month. What holds most back isn't the offer. It's that they've never had a sales team that actually works."</p>
+    <p class="avatar-detail">You have an offer that's proven. A healthy list or consistent leads coming in. But your sales process is the bottleneck. You've plateaued somewhere between $50K and $200K/month. You want record months and you want them consistently. You've tried hiring, outsourcing, courses, coaches. Nothing stuck. This is different.</p>
+  </div>
+</section>
+
+<!-- FRAMEWORK -->
+<section class="section" id="framework">
+  <div class="section-inner">
+    <div class="section-label">Our Method</div>
+    <h2 class="section-title">Four Phases. No Guesswork.</h2>
+    <p class="section-sub">Most agencies put you on paid ads before you have a sales machine that works. That's backwards. You need to fix what's actually broken first, then scale what works. Here's our exact playbook.</p>
+    <div class="framework-steps">
+      <div class="framework-step">
+        <div class="step-num">1</div>
+        <h3>Sales First</h3>
+        <p>We fix your sales machine first. Audit the current process. Identify the real constraint. Build and optimize the team, comp plan, and calendar flow.</p>
+        <div class="step-detail">If it doesn't sell, nothing else matters.</div>
+      </div>
+      <div class="framework-step">
+        <div class="step-num">2</div>
+        <h3>Fast Cash</h3>
+        <p>Low-hanging fruit. Quick wins that bring in revenue fast while we build the long-term machine. If there's money being left on the table right now, we grab it.</p>
+        <div class="step-detail">Revenue in weeks, not months.</div>
+      </div>
+      <div class="framework-step">
+        <div class="step-num">3</div>
+        <h3>Scale Delivery</h3>
+        <p>Now that sales is hitting, we make sure delivery can handle volume. Systems, CS, fulfillment. Everything gets locked in so you can say yes to more business without fear.</p>
+        <div class="step-detail">Remove the fear of scaling.</div>
+      </div>
+      <div class="framework-step">
+        <div class="step-num">4</div>
+        <h3>Make It Rain</h3>
+        <p>Paid traffic. Now that your conversion machine is maxed out, we flood it. More leads hitting a machine that actually converts. This is where the growth exponentials happen.</p>
+        <div class="step-detail">Only when you're ready to deliver.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section section-dark" id="process">
+  <div class="section-inner">
+    <div class="section-label">What We Actually Do</div>
+    <h2 class="section-title">We Replace Your Entire Sales Operation</h2>
+    <p class="section-sub">Not a staffing firm. Not a fractional rep. We come in, diagnose the actual problem, and build a machine that out-performs whatever you have running today. Here's what that looks like.</p>
+    <div class="how-it-works">
+      <div class="hiw-row">
+        <div class="hiw-left">
+          <h4>Audit & Diagnose</h4>
+          <p>Before we touch anything, we figure out what's actually broken. Real data. Not guesses. Because most people don't know their real constraint until someone shows them.</p>
+        </div>
+        <div class="hiw-connector">
+          <div class="hiw-num">1</div>
+          <span>Start</span>
+        </div>
+        <div class="hiw-right">
+          <h4>See What Actually Breaks</h4>
+          <p>We review your data, your team, your process. We find the bottleneck you've been missing. Then we build the fix around what's actually wrong, not what you think is wrong.</p>
+        </div>
+      </div>
+      <div class="hiw-row">
+        <div class="hiw-left">
+          <h4>Build & Replace</h4>
+          <p>We recruit, train, and manage the sales team. Full replacement of your sales manager and closers if needed. We staff with top talent matched to your offer and culture.</p>
+        </div>
+        <div class="hiw-connector">
+          <div class="hiw-num">2</div>
+          <span>Build</span>
+        </div>
+        <div class="hiw-right">
+          <h4>The Right People In The Right Seats</h4>
+          <p>Not a cog in the wheel. Not an offshore team you can't manage. We make sure every person integrates with your culture and is set up to perform from day one.</p>
+        </div>
+      </div>
+      <div class="hiw-row">
+        <div class="hiw-left">
+          <h4>Optimize & Scale</h4>
+          <p>We track everything. Weekly reports. Real numbers. We know what's working, what's leaking, and where to push next. The data doesn't lie.</p>
+        </div>
+        <div class="hiw-connector">
+          <div class="hiw-num">3</div>
+          <span>Scale</span>
+        </div>
+        <div class="hiw-right">
+          <h4>Consistency You Can Build On</h4>
+          <p>Once we know what works, we double down. More reps. Better comp plans. More volume. You'll finally have the predictable months and revenue trajectory you've been chasing.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFFERENTIATORS -->
+<section class="section" id="diff">
+  <div class="section-inner">
+    <div class="section-label">Why Sales Possible</div>
+    <h2 class="section-title">Not Another Staffing Firm</h2>
+    <p class="section-sub">Most people hear "outsourced sales" and think of staffing agencies, cold-call farms, or some overseas team that doesn't care about their brand. That's not what we do. Here's what makes us different.</p>
+    <div class="diff-grid">
+      <div class="diff-card section-dark" style="border: 1px solid var(--border); border-radius: 12px;">
+        <h3>Theory of Constraints Approach</h3>
+        <p>We don't guess. We don't guess. We find the actual constraint -- the one thing that's holding back your revenue -- and fix that first. Most agencies throw bodies at the problem. We find the real problem first.</p>
+      </div>
+      <div class="diff-card section-dark" style="border: 1px solid var(--border); border-radius: 12px;">
+        <h3>Performance-Based Model</h3>
+        <p>No absurd upfront costs. We build your sales machine on our dime and get paid when you grow. Our incentives are perfectly aligned with yours. Win-win or no deal.</p>
+      </div>
+      <div class="diff-card section-dark" style="border: 1px solid var(--border); border-radius: 12px;">
+        <h3>Full Sales Team Replacement</h3>
+        <p>We replace your sales manager, your closers, your setters -- whatever needs replacing. We bring in top talent, train them on your offer, and manage the whole operation.</p>
+      </div>
+      <div class="diff-card section-dark" style="border: 1px solid var(--border); border-radius: 12px;">
+        <h3>Brand Integrity Intact</h3>
+        <p>Our people sound like your people. We match your culture, your voice, your values. Your clients won't know an outsourced team is running your sales. They'll just think your sales team finally figured it out.</p>
+      </div>
+      <div class="diff-card section-dark" style="border: 1px solid var(--border); border-radius: 12px;">
+        <h3>Data-First Decision Making</h3>
+        <p>Every decision we make is backed by data. Weekly reporting, bottleneck analysis, A/B testing on comp plans and scripts. The data tells us where to push. We follow the data.</p>
+      </div>
+      <div class="diff-card section-dark" style="border: 1px solid var(--border); border-radius: 12px;">
+        <h3>90-120 Day Results</h3>
+        <p>Most clients see meaningful revenue movement within 90 days. Not because we work magic. Because we execute a proven framework fast, without the typical learning curve.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="section section-dark">
+  <div class="section-inner">
+    <div class="section-label" style="text-align:center">What We Deliver</div>
+    <h2 class="section-title" style="text-align:center">The Numbers Change. Fast.</h2>
+    <div class="results-strip" style="margin-top: 2.5rem;">
+      <div class="result-item">
+        <div class="num">90</div>
+        <div class="label">Days to consistency</div>
+      </div>
+      <div class="result-item">
+        <div class="num">$200K+</div>
+        <div class="label">Avg. additional monthly revenue</div>
+      </div>
+      <div class="result-item">
+        <div class="num">0</div>
+        <div class="label">Upfront cost to start</div>
+      </div>
+      <div class="result-item">
+        <div class="num">100%</div>
+        <div class="label">Performance-based engagement</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIAGNOSTIC / CTA -->
+<section class="section" id="apply">
+  <div class="section-inner">
+    <div class="section-label">Start Here</div>
+    <h2 class="section-title">Find Your Real Constraint</h2>
+    <p class="section-sub">Before we talk about working together, let's figure out what your actual problem is. Book a call and we'll audit your current sales operation live. No fluff, no pitch. Just the truth about what's broken and what it's costing you.</p>
+    <div class="diag-inner" style="margin-top: 3rem;">
+      <div>
+        <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem;">What happens on the call:</h3>
+        <div class="process-list">
+          <div class="process-item">
+            <div class="process-icon">🔍</div>
+            <div>
+              <h4>Sales Audit</h4>
+              <p>We look at your current numbers, team structure, comp plan, and conversion data to spot the real constraint.</p>
+            </div>
+          </div>
+          <div class="process-item">
+            <div class="process-icon">📊</div>
+            <div>
+              <h4>Root Cause Analysis</h4>
+              <p>No more guessing. We show you exactly what's broken and what it's costing you every month it goes unfixed.</p>
+            </div>
+          </div>
+          <div class="process-item">
+            <div class="process-icon">🎯</div>
+            <div>
+              <h4>Custom Game Plan</h4>
+              <p>If we're a fit, we lay out exactly how we'd fix it -- timeline, team structure, and expected results. No generic proposals.</p>
+            </div>
+          </div>
+          <div class="process-item">
+            <div class="process-icon">💬</div>
+            <div>
+              <h4>Ask Anything</h4>
+              <p>How we source? How do we integrate? What's the comp structure? How do we match culture? Get real answers.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="diag-cta-box">
+        <h3>Book Your Strategy Call</h3>
+        <p>30 minutes. No commitment. Just the truth about what's holding your sales back.</p>
+        <form>
+          <div class="form-field">
+            <label>First Name</label>
+            <input type="text" placeholder="Your first name">
+          </div>
+          <div class="form-field">
+            <label>Email</label>
+            <input type="email" placeholder="you@yourcompany.com">
+          </div>
+          <div class="form-field">
+            <label>Monthly Revenue</label>
+            <select>
+              <option value="">Select a range</option>
+              <option>Under $20K/month</option>
+              <option>$20K - $50K/month</option>
+              <option>$50K - $100K/month</option>
+              <option>$100K - $200K/month</option>
+              <option>$200K+/month</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label>Biggest Sales Challenge</label>
+            <textarea placeholder="What's your biggest sales problem right now?"></textarea>
+          </div>
+          <button type="submit" class="btn-primary form-submit">Book My Strategy Call</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section section-dark" id="faq">
+  <div class="section-inner">
+    <div class="section-label" style="text-align:center">FAQ</div>
+    <h2 class="section-title" style="text-align:center">Common Questions</h2>
+    <div class="faq-list">
+      <div class="faq-item open">
+        <button class="faq-q">Is this just outsourced sales? <span class="icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">No. Most outsourced sales firms are staffing agencies -- they find bodies, drop them in, and leave. We find the actual constraint. Is it setter quality? Closer training? Comp plan? Calendar management? Funnel leak somewhere? We figure out what's actually broken, build the fix, staff it with top talent, and manage the whole operation. We're not cogs in your wheel. We're the machine.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Who manages the salespeople? <span class="icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">We do. Full management. We recruit, hire, train, and manage your sales team. If someone isn't performing, we replace them. If the comp plan isn't working, we fix it. You get a Chief Sales Officer-level operation without the $200K+ salary. We handle everything.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How do they integrate with our team? <span class="icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Our people are matched to your culture. Before we place anyone, we make sure they're aligned with your values, your voice, your brand. They're trained on your offer, your buyer personas, your process. Your existing team won't even think of them as outsourced -- they'll just think your sales team finally has the structure it's been missing.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What's the compensation structure? <span class="icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Performance-based. We get paid on results, not headcount. That means our incentives are perfectly aligned with yours. If your revenue doesn't grow, we don't get paid. We're not the right fit for everyone -- we only work with offer owners who are ready to scale and committed to executing.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What if we already have a sales team? <span class="icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">We replace or augment whatever's there. That might mean we take over your existing team, rebuild it from scratch, or supplement it with additional talent where you have gaps. Most people think they have a setter problem when the real constraint is something else entirely. We figure out what's actually broken first.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How long does it take to see results? <span class="icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Most clients see meaningful movement within 90 days. The first 30 days is diagnosis and team building. By day 60, you have a functioning team that's been trained and is actively selling. By day 90, most clients are seeing significant revenue increases. We're not a quick fix. We're a machine that compounds over time.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What if it doesn't work? <span class="icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">We'll tell you upfront if we don't think we're the right fit. We're selective about who we work with because we only succeed when you succeed. If we take you on, it's because we believe we can move the needle. If for any reason we're not a fit after the strategy call, we'll tell you and point you to someone who is.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How do you match our brand and culture? <span class="icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Before we place anyone, we do a deep dive on your brand voice, your buyer personas, your market positioning, and your team culture. Every person we place goes through training specifically for your offer. We run ongoing QA on calls to make sure they're representing your brand the way you would. Brand integrity isn't optional -- it's the point.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta-section">
+  <h2>Stop Letting Sales Be<br>The Constraint On Your Growth</h2>
+  <p>You've built the offer. You've got the leads. Now it's time to build the machine that converts both into consistent, record-breaking revenue.</p>
+  <a href="#apply" class="btn-primary">Book a Strategy Call</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2026 Sales Possible. Done For You Sales Agency. All rights reserved.</p>
+</footer>
+
+<script>
+  // FAQ toggle
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      item.classList.toggle('open');
+    });
+  });
+
+  // Smooth form submit
+  document.querySelector('form').addEventListener('submit', e => {
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type=submit]');
+    btn.textContent = 'Submitted! We\'ll be in touch.';
+    btn.style.background = '#22c55e';
+  });
+</script>
+</body>
+</html>
