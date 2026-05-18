@@ -1,0 +1,1272 @@
+<style>
+/* ============================================
+   GHL PAGE RESET & ROOT OVERRIDES
+   ============================================ */
+html, body, .bg-fixed {
+  background: #050510 !important;
+}
+
+:root {
+  --white: #050510 !important;
+  --daa-red: #E63946;
+  --daa-red-dark: #c62833;
+  --daa-dark: #050510;
+  --daa-card: #0d0d1f;
+  --daa-border: #1a1a2e;
+  --daa-muted: #8888aa;
+  --daa-white: #ffffff;
+}
+
+/* ============================================
+   BASE RESET
+   ============================================ */
+.daa-body {
+  font-family: 'Inter', sans-serif !important;
+  color: #fff !important;
+  background: #050510 !important;
+  line-height: 1.6 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* ============================================
+   NAV
+   ============================================ */
+.daa-nav {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 100 !important;
+  background: rgba(5, 5, 16, 0.9) !important;
+  backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid #1a1a2e !important;
+  padding: 0 2rem !important;
+  height: 64px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+}
+
+.daa-nav-logo {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+}
+
+.daa-nav-logo img {
+  height: 44px !important;
+  border-radius: 6px !important;
+  width: auto !important;
+}
+
+.daa-nav-logo span {
+  font-weight: 800 !important;
+  font-size: 1rem !important;
+  letter-spacing: 0.08em !important;
+  color: #ffffff !important;
+}
+
+.daa-nav-links {
+  display: flex !important;
+  gap: 2rem !important;
+  align-items: center !important;
+}
+
+.daa-nav-links a {
+  color: #8888aa !important;
+  text-decoration: none !important;
+  font-size: 0.9rem !important;
+  font-weight: 500 !important;
+  transition: color 0.2s !important;
+}
+
+.daa-nav-links a:hover {
+  color: #ffffff !important;
+}
+
+.daa-nav-cta {
+  background: #E63946 !important;
+  color: #ffffff !important;
+  padding: 0.5rem 1.25rem !important;
+  border-radius: 6px !important;
+  font-weight: 600 !important;
+  transition: background 0.2s !important;
+  text-decoration: none !important;
+}
+
+.daa-nav-cta:hover {
+  background: #c62833 !important;
+  color: #ffffff !important;
+}
+
+/* ============================================
+   HERO
+   ============================================ */
+.daa-hero {
+  min-height: 100vh !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 8rem 2rem 4rem !important;
+  position: relative !important;
+  overflow: hidden !important;
+  background: #050510 !important;
+}
+
+.daa-hero::before {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: radial-gradient(ellipse at 50% 0%, rgba(230, 57, 70, 0.12) 0%, transparent 70%) !important;
+  pointer-events: none !important;
+}
+
+.daa-hero-inner {
+  max-width: 1100px !important;
+  margin: 0 auto !important;
+  width: 100% !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.daa-hero-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  background: rgba(230, 57, 70, 0.12) !important;
+  border: 1px solid rgba(230, 57, 70, 0.3) !important;
+  padding: 0.4rem 1rem !important;
+  border-radius: 100px !important;
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+  color: #E63946 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  margin-bottom: 1rem !important;
+}
+
+.daa-hero-logo {
+  height: 80px !important;
+  border-radius: 10px !important;
+  width: auto !important;
+  margin-bottom: 1.5rem !important;
+  display: block !important;
+}
+
+.daa-hero h1 {
+  font-size: clamp(2.8rem, 6vw, 5rem) !important;
+  font-weight: 900 !important;
+  line-height: 1.05 !important;
+  letter-spacing: -0.02em !important;
+  margin-bottom: 1.5rem !important;
+  color: #ffffff !important;
+}
+
+.daa-hero h1 .daa-red {
+  color: #E63946 !important;
+}
+
+.daa-hero-sub {
+  font-size: 1.2rem !important;
+  color: #8888aa !important;
+  max-width: 600px !important;
+  margin-bottom: 2.5rem !important;
+  line-height: 1.7 !important;
+}
+
+.daa-hero-actions {
+  display: flex !important;
+  gap: 1rem !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+}
+
+.daa-btn-primary {
+  background: #E63946 !important;
+  color: #ffffff !important;
+  padding: 0.9rem 2rem !important;
+  border-radius: 8px !important;
+  font-weight: 700 !important;
+  font-size: 1rem !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  transition: background 0.2s, transform 0.2s !important;
+  border: none !important;
+  cursor: pointer !important;
+}
+
+.daa-btn-primary:hover {
+  background: #c62833 !important;
+  transform: translateY(-1px) !important;
+}
+
+.daa-btn-secondary {
+  background: transparent !important;
+  color: #ffffff !important;
+  padding: 0.9rem 2rem !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  border: 1px solid #1a1a2e !important;
+  transition: border-color 0.2s, background 0.2s !important;
+}
+
+.daa-btn-secondary:hover {
+  border-color: #8888aa !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+}
+
+.daa-hero-stats {
+  display: flex !important;
+  gap: 3rem !important;
+  margin-top: 3rem !important;
+  padding-top: 2rem !important;
+  border-top: 1px solid #1a1a2e !important;
+  flex-wrap: wrap !important;
+}
+
+.daa-hero-stat-num {
+  font-size: 1.8rem !important;
+  font-weight: 800 !important;
+  color: #ffffff !important;
+}
+
+.daa-hero-stat-label {
+  font-size: 0.85rem !important;
+  color: #8888aa !important;
+  margin-top: 0.15rem !important;
+}
+
+/* ============================================
+   SECTIONS
+   ============================================ */
+.daa-section {
+  padding: 6rem 2rem !important;
+  background: #050510 !important;
+}
+
+.daa-section-dark {
+  background: #0d0d1f !important;
+  padding: 6rem 2rem !important;
+}
+
+.daa-section-inner {
+  max-width: 1100px !important;
+  margin: 0 auto !important;
+}
+
+.daa-section-label {
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
+  color: #E63946 !important;
+  margin-bottom: 0.75rem !important;
+}
+
+.daa-section-title {
+  font-size: clamp(2rem, 4vw, 3rem) !important;
+  font-weight: 800 !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.02em !important;
+  margin-bottom: 1rem !important;
+  color: #ffffff !important;
+}
+
+.daa-section-sub {
+  font-size: 1.1rem !important;
+  color: #8888aa !important;
+  max-width: 600px !important;
+  line-height: 1.7 !important;
+}
+
+/* ============================================
+   PROBLEM GRID
+   ============================================ */
+.daa-problem-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+  gap: 1.5rem !important;
+  margin-top: 3rem !important;
+}
+
+.daa-problem-card {
+  background: #050510 !important;
+  border: 1px solid #1a1a2e !important;
+  padding: 2rem !important;
+  border-radius: 12px !important;
+}
+
+.daa-problem-card .daa-emoji {
+  font-size: 2rem !important;
+  margin-bottom: 1rem !important;
+  display: block !important;
+}
+
+.daa-problem-card h3 {
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 0.5rem !important;
+  color: #ffffff !important;
+}
+
+.daa-problem-card p {
+  font-size: 0.9rem !important;
+  color: #8888aa !important;
+  line-height: 1.6 !important;
+}
+
+/* ============================================
+   AVATAR
+   ============================================ */
+.daa-avatar-quote {
+  font-size: 1.3rem !important;
+  font-weight: 600 !important;
+  line-height: 1.5 !important;
+  color: #ffffff !important;
+  max-width: 800px !important;
+  margin: 0 auto 2rem !important;
+  text-align: center !important;
+}
+
+.daa-avatar-detail {
+  text-align: center !important;
+  color: #8888aa !important;
+  font-size: 0.95rem !important;
+}
+
+/* ============================================
+   FRAMEWORK STEPS
+   ============================================ */
+.daa-framework-steps {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 1px !important;
+  background: #1a1a2e !important;
+  margin-top: 3rem !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+}
+
+@media (max-width: 900px) {
+  .daa-framework-steps { grid-template-columns: 1fr 1fr !important; }
+}
+
+@media (max-width: 500px) {
+  .daa-framework-steps { grid-template-columns: 1fr !important; }
+}
+
+.daa-framework-step {
+  background: #0d0d1f !important;
+  padding: 2rem !important;
+  position: relative !important;
+}
+
+.daa-step-num {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 50% !important;
+  background: #E63946 !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  font-size: 0.85rem !important;
+  margin-bottom: 1.25rem !important;
+}
+
+.daa-framework-step h3 {
+  font-size: 1.05rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 0.5rem !important;
+  color: #ffffff !important;
+}
+
+.daa-framework-step p {
+  font-size: 0.85rem !important;
+  color: #8888aa !important;
+  line-height: 1.6 !important;
+}
+
+.daa-step-detail {
+  margin-top: 1rem !important;
+  font-size: 0.8rem !important;
+  color: #E63946 !important;
+  font-weight: 600 !important;
+}
+
+/* ============================================
+   HOW IT WORKS
+   ============================================ */
+.daa-hiw-row {
+  display: grid !important;
+  grid-template-columns: 1fr auto 1fr !important;
+  gap: 1.5rem !important;
+  align-items: center !important;
+  margin-bottom: 2.5rem !important;
+}
+
+.daa-hiw-left h4 {
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 0.5rem !important;
+  color: #ffffff !important;
+}
+
+.daa-hiw-left p {
+  font-size: 0.85rem !important;
+  color: #8888aa !important;
+}
+
+.daa-hiw-connector {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  color: #E63946 !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+}
+
+.daa-hiw-num {
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50% !important;
+  background: #E63946 !important;
+  color: #ffffff !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-weight: 800 !important;
+}
+
+.daa-hiw-right {
+  background: #0d0d1f !important;
+  border: 1px solid #1a1a2e !important;
+  padding: 1.5rem 2rem !important;
+  border-radius: 12px !important;
+}
+
+.daa-hiw-right h4 {
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 0.5rem !important;
+  color: #ffffff !important;
+}
+
+.daa-hiw-right p {
+  font-size: 0.85rem !important;
+  color: #8888aa !important;
+}
+
+/* ============================================
+   DIFFERENTIATORS
+   ============================================ */
+.daa-diff-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+  gap: 1.5rem !important;
+  margin-top: 3rem !important;
+}
+
+.daa-diff-card {
+  background: #0d0d1f !important;
+  border: 1px solid #1a1a2e !important;
+  padding: 2rem !important;
+  border-radius: 12px !important;
+}
+
+.daa-diff-card h3 {
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 0.5rem !important;
+  color: #ffffff !important;
+}
+
+.daa-diff-card p {
+  font-size: 0.9rem !important;
+  color: #8888aa !important;
+  line-height: 1.6 !important;
+}
+
+/* ============================================
+   RESULTS STRIP
+   ============================================ */
+.daa-results-strip {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 1px !important;
+  background: #1a1a2e !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  margin-top: 2.5rem !important;
+}
+
+@media (max-width: 768px) {
+  .daa-results-strip { grid-template-columns: 1fr 1fr !important; }
+}
+
+.daa-result-item {
+  background: #0d0d1f !important;
+  padding: 2rem !important;
+  text-align: center !important;
+}
+
+.daa-result-num {
+  font-size: 2.2rem !important;
+  font-weight: 900 !important;
+  color: #E63946 !important;
+}
+
+.daa-result-label {
+  font-size: 0.8rem !important;
+  color: #8888aa !important;
+  margin-top: 0.4rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+}
+
+/* ============================================
+   PROCESS LIST
+   ============================================ */
+.daa-process-list {
+  margin-top: 2.5rem !important;
+}
+
+.daa-process-item {
+  display: flex !important;
+  gap: 1.5rem !important;
+  margin-bottom: 2rem !important;
+  align-items: flex-start !important;
+}
+
+.daa-process-icon {
+  flex-shrink: 0 !important;
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 50% !important;
+  background: rgba(230, 57, 70, 0.12) !important;
+  border: 1px solid rgba(230, 57, 70, 0.25) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 1.2rem !important;
+}
+
+.daa-process-item h4 {
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 0.25rem !important;
+  color: #ffffff !important;
+}
+
+.daa-process-item p {
+  font-size: 0.85rem !important;
+  color: #8888aa !important;
+}
+
+/* ============================================
+   TEAM
+   ============================================ */
+.daa-team-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 1.5rem !important;
+  margin-top: 2.5rem !important;
+}
+
+@media (max-width: 900px) {
+  .daa-team-grid { grid-template-columns: 1fr !important; }
+}
+
+.daa-team-card {
+  background: #0d0d1f !important;
+  border: 1px solid #1a1a2e !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+}
+
+.daa-team-card-main {
+  border: 1px solid rgba(230, 57, 70, 0.3) !important;
+}
+
+.daa-team-photo-wrap {
+  width: 100% !important;
+  height: 240px !important;
+  overflow: hidden !important;
+  background: #050510 !important;
+}
+
+.daa-team-photo {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center top !important;
+  display: block !important;
+}
+
+.daa-team-info {
+  padding: 1.5rem !important;
+}
+
+.daa-team-info h3 {
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 0.25rem !important;
+  color: #ffffff !important;
+}
+
+.daa-team-title {
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+  color: #E63946 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  margin-bottom: 0.75rem !important;
+}
+
+.daa-team-info p {
+  font-size: 0.85rem !important;
+  color: #8888aa !important;
+  line-height: 1.65 !important;
+}
+
+/* ============================================
+   FORM / CTA BOX
+   ============================================ */
+.daa-diag-inner {
+  margin-top: 3rem !important;
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 3rem !important;
+  align-items: start !important;
+}
+
+@media (max-width: 768px) {
+  .daa-diag-inner { grid-template-columns: 1fr !important; }
+}
+
+.daa-diag-cta-box {
+  background: rgba(230, 57, 70, 0.08) !important;
+  border: 1px solid rgba(230, 57, 70, 0.25) !important;
+  padding: 2.5rem !important;
+  border-radius: 12px !important;
+}
+
+.daa-diag-cta-box h3 {
+  font-size: 1.3rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 0.75rem !important;
+  color: #ffffff !important;
+}
+
+.daa-diag-cta-box p {
+  font-size: 0.95rem !important;
+  color: #8888aa !important;
+  margin-bottom: 1.5rem !important;
+}
+
+.daa-form-field {
+  margin-bottom: 1rem !important;
+}
+
+.daa-form-field label {
+  display: block !important;
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+  margin-bottom: 0.35rem !important;
+  color: #8888aa !important;
+}
+
+.daa-form-field input,
+.daa-form-field select,
+.daa-form-field textarea {
+  width: 100% !important;
+  padding: 0.7rem 1rem !important;
+  border-radius: 6px !important;
+  background: #050510 !important;
+  border: 1px solid #1a1a2e !important;
+  color: #ffffff !important;
+  font-size: 0.9rem !important;
+  font-family: inherit !important;
+}
+
+.daa-form-field input:focus,
+.daa-form-field select:focus,
+.daa-form-field textarea:focus {
+  outline: none !important;
+  border-color: #E63946 !important;
+}
+
+.daa-form-field textarea {
+  resize: vertical !important;
+  min-height: 80px !important;
+}
+
+.daa-form-submit {
+  width: 100% !important;
+  margin-top: 0.5rem !important;
+}
+
+/* ============================================
+   FAQ
+   ============================================ */
+.daa-faq-list {
+  max-width: 700px !important;
+  margin: 3rem auto 0 !important;
+}
+
+.daa-faq-item {
+  border-bottom: 1px solid #1a1a2e !important;
+}
+
+.daa-faq-q {
+  width: 100% !important;
+  background: none !important;
+  border: none !important;
+  color: #ffffff !important;
+  padding: 1.25rem 0 !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  text-align: left !important;
+  cursor: pointer !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  font-family: inherit !important;
+}
+
+.daa-faq-q:hover {
+  color: #E63946 !important;
+}
+
+.daa-faq-icon {
+  font-size: 1.4rem !important;
+  transition: transform 0.2s !important;
+  color: #8888aa !important;
+}
+
+.daa-faq-a {
+  padding-bottom: 1.25rem !important;
+  font-size: 0.9rem !important;
+  color: #8888aa !important;
+  line-height: 1.7 !important;
+}
+
+/* ============================================
+   FINAL CTA
+   ============================================ */
+.daa-cta-section {
+  background: radial-gradient(ellipse at 50% 50%, rgba(230, 57, 70, 0.15) 0%, transparent 70%) !important;
+  text-align: center !important;
+  padding: 8rem 2rem !important;
+}
+
+.daa-cta-section h2 {
+  font-size: clamp(2.2rem, 5vw, 3.5rem) !important;
+  font-weight: 900 !important;
+  line-height: 1.1 !important;
+  margin-bottom: 1rem !important;
+  color: #ffffff !important;
+}
+
+.daa-cta-section p {
+  color: #8888aa !important;
+  font-size: 1.1rem !important;
+  margin-bottom: 2rem !important;
+  max-width: 550px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.daa-cta-section .daa-btn-primary {
+  padding: 1rem 2.5rem !important;
+  font-size: 1.1rem !important;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.daa-footer {
+  background: #0d0d1f !important;
+  border-top: 1px solid #1a1a2e !important;
+  padding: 2rem !important;
+  text-align: center !important;
+}
+
+.daa-footer p {
+  font-size: 0.8rem !important;
+  color: #8888aa !important;
+}
+
+/* ============================================
+   UTILITY
+   ============================================ */
+.daa-text-center {
+  text-align: center !important;
+}
+
+.daa-muted {
+  color: #8888aa !important;
+}
+
+.daa-mb-1 { margin-bottom: 1rem !important; }
+.daa-mb-2 { margin-bottom: 2rem !important; }
+.daa-mb-3 { margin-bottom: 3rem !important; }
+.daa-mt-1 { margin-top: 1rem !important; }
+.daa-mt-2 { margin-top: 2rem !important; }
+.daa-mt-3 { margin-top: 3rem !important; }
+</style>
+
+<!-- ============================================
+     PAGE CONTENT
+     ============================================ -->
+
+<!-- NAV -->
+<div class="daa-nav">
+  <div class="daa-nav-logo">
+    <img src="https://raw.githubusercontent.com/joelsalespossible/sales-possible-site/master/logo.png" alt="Sales Possible">
+    <span>SALES POSSIBLE</span>
+  </div>
+  <div class="daa-nav-links">
+    <a href="#problem">The Problem</a>
+    <a href="#framework">How It Works</a>
+    <a href="#diff">Why Us</a>
+    <a href="#faq">FAQ</a>
+    <a href="#apply" class="daa-nav-cta">Apply Now</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="daa-hero" id="top">
+  <div class="daa-hero-inner">
+    <div class="daa-hero-badge">Done For You Sales Agency</div>
+    <img src="https://raw.githubusercontent.com/joelsalespossible/sales-possible-site/master/logo.png" alt="Sales Possible" class="daa-hero-logo">
+    <h1>Stop Trading Time<br>For <span class="daa-red">Inconsistent Revenue</span></h1>
+    <p class="daa-hero-sub">You built the offer. You did the hard part. Now your sales is the constraint that's keeping you from the consistent months and record-breaking revenue you know you're capable of. We fix that. No staffing firms. No guesswork. Just a full outsourced sales team that performs.</p>
+    <div class="daa-hero-actions">
+      <a href="#apply" class="daa-btn-primary">Book a Strategy Call</a>
+      <a href="#framework" class="daa-btn-secondary">See How It Works</a>
+    </div>
+    <div class="daa-hero-stats">
+      <div>
+        <div class="daa-hero-stat-num">90 Days</div>
+        <div class="daa-hero-stat-label">To consistent months</div>
+      </div>
+      <div>
+        <div class="daa-hero-stat-num">$200K+</div>
+        <div class="daa-hero-stat-label">Average additional revenue</div>
+      </div>
+      <div>
+        <div class="daa-hero-stat-num">0</div>
+        <div class="daa-hero-stat-label">Upfront cost to start</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<div class="daa-section" id="problem">
+  <div class="daa-section-inner">
+    <div class="daa-section-label">The Problem</div>
+    <h2 class="daa-section-title">You're Not Broken. Your Sales System Is.</h2>
+    <p class="daa-section-sub">Most offer owners at $100K/month feel stuck. They've tried everything. They think the issue is their funnel, their offer, their traffic. But the real problem? Their sales machine is broken and they can't see it from the inside.</p>
+    <div class="daa-problem-grid">
+      <div class="daa-problem-card">
+        <span class="daa-emoji">&#128079;</span>
+        <h3>Inconsistent Months</h3>
+        <p>One month you're at $40K. The next you're back to $12K. You can't build a team, hire staff, or invest in growth when revenue swings like this.</p>
+      </div>
+      <div class="daa-problem-card">
+        <span class="daa-emoji">&#9200;</span>
+        <h3>Trapped In The Day-to-Day</h3>
+        <p>You're the closer, the manager, the closer, and the CS rep all at once. You're working in the business, not on it. And there's no end in sight.</p>
+      </div>
+      <div class="daa-problem-card">
+        <span class="daa-emoji">&#128679;</span>
+        <h3>Afraid To Scale</h3>
+        <p>You know you have a volume problem. But bringing in a flood of leads sounds terrifying because your delivery, your team, your systems... you don't trust them to handle it.</p>
+      </div>
+      <div class="daa-problem-card">
+        <span class="daa-emoji">&#128260;</span>
+        <h3>Every Hire Feels Like A Gamble</h3>
+        <p>You've hired before. It didn't work. So now you're gun-shy. You either avoid hiring altogether or you under-hire and stay stuck.</p>
+      </div>
+      <div class="daa-problem-card">
+        <span class="daa-emoji">&#129513;</span>
+        <h3>You Don't Know Your Real Constraint</h3>
+        <p>Is it setter quality? Closer training? Comp plan? Calendar management? Funnel leak somewhere? You think you know. But you don't. And you won't until someone with fresh eyes audits the whole thing.</p>
+      </div>
+      <div class="daa-problem-card">
+        <span class="daa-emoji">&#128544;</span>
+        <h3>Burnout Is Real</h3>
+        <p>You're exhausted. Running sales AND delivery AND operations is a full-time job times three. Something has to give. Usually it's your numbers.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHO THIS IS FOR -->
+<div class="daa-section-dark" id="who">
+  <div class="daa-section-inner daa-text-center">
+    <div class="daa-section-label">Who This Is For</div>
+    <p class="daa-avatar-quote">"Every offer owner wants to scale to a million a month. What holds most back isn't the offer. It's that they've never had a sales team that actually works."</p>
+    <p class="daa-avatar-detail">You have an offer that's proven. A healthy list or consistent leads coming in. But your sales process is the bottleneck. You've plateaued somewhere between $50K and $200K/month. You want record months and you want them consistently. You've tried hiring, outsourcing, courses, coaches. Nothing stuck. This is different.</p>
+  </div>
+</div>
+
+<!-- FRAMEWORK -->
+<div class="daa-section" id="framework">
+  <div class="daa-section-inner">
+    <div class="daa-section-label">Our Method</div>
+    <h2 class="daa-section-title">Four Phases. No Guesswork.</h2>
+    <p class="daa-section-sub">Most agencies put you on paid ads before you have a sales machine that works. That's backwards. You need to fix what's actually broken first, then scale what works. Here's our exact playbook.</p>
+    <div class="daa-framework-steps">
+      <div class="daa-framework-step">
+        <div class="daa-step-num">1</div>
+        <h3>Sales First</h3>
+        <p>We fix your sales machine first. Audit the current process. Identify the real constraint. Build and optimize the team, comp plan, and calendar flow.</p>
+        <div class="daa-step-detail">If it doesn't sell, nothing else matters.</div>
+      </div>
+      <div class="daa-framework-step">
+        <div class="daa-step-num">2</div>
+        <h3>Fast Cash</h3>
+        <p>Low-hanging fruit. Quick wins that bring in revenue fast while we build the long-term machine. If there's money being left on the table right now, we grab it.</p>
+        <div class="daa-step-detail">Revenue in weeks, not months.</div>
+      </div>
+      <div class="daa-framework-step">
+        <div class="daa-step-num">3</div>
+        <h3>Scale Delivery</h3>
+        <p>Now that sales is hitting, we make sure delivery can handle volume. Systems, CS, fulfillment. Everything gets locked in so you can say yes to more business without fear.</p>
+        <div class="daa-step-detail">Remove the fear of scaling.</div>
+      </div>
+      <div class="daa-framework-step">
+        <div class="daa-step-num">4</div>
+        <h3>Make It Rain</h3>
+        <p>Paid traffic. Now that your conversion machine is maxed out, we flood it. More leads hitting a machine that actually converts. This is where the growth exponentials happen.</p>
+        <div class="daa-step-detail">Only when you're ready to deliver.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="daa-section-dark" id="process">
+  <div class="daa-section-inner">
+    <div class="daa-section-label">What We Actually Do</div>
+    <h2 class="daa-section-title">We Replace Your Entire Sales Operation</h2>
+    <p class="daa-section-sub">Not a staffing firm. Not a fractional rep. We come in, diagnose the actual problem, and build a machine that out-performs whatever you have running today. Here's what that looks like.</p>
+    <div class="daa-hiw-row">
+      <div class="daa-hiw-left">
+        <h4>Audit & Diagnose</h4>
+        <p>Before we touch anything, we figure out what's actually broken. Real data. Not guesses. Because most people don't know their real constraint until someone shows them.</p>
+      </div>
+      <div class="daa-hiw-connector">
+        <div class="daa-hiw-num">1</div>
+        <span>Start</span>
+      </div>
+      <div class="daa-hiw-right">
+        <h4>See What Actually Breaks</h4>
+        <p>We review your data, your team, your process. We find the bottleneck you've been missing. Then we build the fix around what's actually wrong, not what you think is wrong.</p>
+      </div>
+    </div>
+    <div class="daa-hiw-row">
+      <div class="daa-hiw-left">
+        <h4>Build & Replace</h4>
+        <p>We recruit, train, and manage the sales team. Full replacement of your sales manager and closers if needed. We staff with top talent matched to your offer and culture.</p>
+      </div>
+      <div class="daa-hiw-connector">
+        <div class="daa-hiw-num">2</div>
+        <span>Build</span>
+      </div>
+      <div class="daa-hiw-right">
+        <h4>The Right People In The Right Seats</h4>
+        <p>Not a cog in the wheel. Not an offshore team you can't manage. We make sure every person integrates with your culture and is set up to perform from day one.</p>
+      </div>
+    </div>
+    <div class="daa-hiw-row">
+      <div class="daa-hiw-left">
+        <h4>Optimize & Scale</h4>
+        <p>We track everything. Weekly reports. Real numbers. We know what's working, what's leaking, and where to push next. The data doesn't lie.</p>
+      </div>
+      <div class="daa-hiw-connector">
+        <div class="daa-hiw-num">3</div>
+        <span>Scale</span>
+      </div>
+      <div class="daa-hiw-right">
+        <h4>Consistency You Can Build On</h4>
+        <p>Once we know what works, we double down. More reps. Better comp plans. More volume. You'll finally have the predictable months and revenue trajectory you've been chasing.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DIFFERENTIATORS -->
+<div class="daa-section" id="diff">
+  <div class="daa-section-inner">
+    <div class="daa-section-label">Why Sales Possible</div>
+    <h2 class="daa-section-title">Not Another Staffing Firm</h2>
+    <p class="daa-section-sub">Most people hear "outsourced sales" and think of staffing agencies, cold-call farms, or some overseas team that doesn't care about their brand. That's not what we do. Here's what makes us different.</p>
+    <div class="daa-diff-grid">
+      <div class="daa-diff-card">
+        <h3>Theory of Constraints Approach</h3>
+        <p>We don't guess. We find the actual constraint -- the one thing that's holding back your revenue -- and fix that first. Most agencies throw bodies at the problem. We find the real problem first.</p>
+      </div>
+      <div class="daa-diff-card">
+        <h3>Performance-Based Model</h3>
+        <p>No absurd upfront costs. We build your sales machine on our dime and get paid when you grow. Our incentives are perfectly aligned with yours. Win-win or no deal.</p>
+      </div>
+      <div class="daa-diff-card">
+        <h3>Full Sales Team Replacement</h3>
+        <p>We replace your sales manager, your closers, your setters -- whatever needs replacing. We bring in top talent, train them on your offer, and manage the whole operation.</p>
+      </div>
+      <div class="daa-diff-card">
+        <h3>Brand Integrity Intact</h3>
+        <p>Our people sound like your people. We match your culture, your voice, your values. Your clients won't know an outsourced team is running your sales. They'll just think your sales team finally figured it out.</p>
+      </div>
+      <div class="daa-diff-card">
+        <h3>Data-First Decision Making</h3>
+        <p>Every decision we make is backed by data. Weekly reporting, bottleneck analysis, A/B testing on comp plans and scripts. The data tells us where to push. We follow the data.</p>
+      </div>
+      <div class="daa-diff-card">
+        <h3>90-120 Day Results</h3>
+        <p>Most clients see meaningful revenue movement within 90 days. Not because we work magic. Because we execute a proven framework fast, without the typical learning curve.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RESULTS -->
+<div class="daa-section-dark">
+  <div class="daa-section-inner">
+    <div class="daa-section-label daa-text-center">What We Deliver</div>
+    <h2 class="daa-section-title daa-text-center">The Numbers Change. Fast.</h2>
+    <div class="daa-results-strip">
+      <div class="daa-result-item">
+        <div class="daa-result-num">90</div>
+        <div class="daa-result-label">Days to consistency</div>
+      </div>
+      <div class="daa-result-item">
+        <div class="daa-result-num">$200K+</div>
+        <div class="daa-result-label">Avg. additional monthly revenue</div>
+      </div>
+      <div class="daa-result-item">
+        <div class="daa-result-num">0</div>
+        <div class="daa-result-label">Upfront cost to start</div>
+      </div>
+      <div class="daa-result-item">
+        <div class="daa-result-num">100%</div>
+        <div class="daa-result-label">Performance-based engagement</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- APPLY / FORM -->
+<div class="daa-section" id="apply">
+  <div class="daa-section-inner">
+    <div class="daa-section-label">Start Here</div>
+    <h2 class="daa-section-title">Find Your Real Constraint</h2>
+    <p class="daa-section-sub">Before we talk about working together, let's figure out what your actual problem is. Book a call and we'll audit your current sales operation live. No fluff, no pitch. Just the truth about what's broken and what it's costing you.</p>
+    <div class="daa-diag-inner">
+      <div>
+        <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem; color: #ffffff;">What happens on the call:</h3>
+        <div class="daa-process-list">
+          <div class="daa-process-item">
+            <div class="daa-process-icon">&#128269;</div>
+            <div>
+              <h4>Sales Audit</h4>
+              <p>We look at your current numbers, team structure, comp plan, and conversion data to spot the real constraint.</p>
+            </div>
+          </div>
+          <div class="daa-process-item">
+            <div class="daa-process-icon">&#128202;</div>
+            <div>
+              <h4>Root Cause Analysis</h4>
+              <p>No more guessing. We show you exactly what's broken and what it's costing you every month it goes unfixed.</p>
+            </div>
+          </div>
+          <div class="daa-process-item">
+            <div class="daa-process-icon">&#127919;</div>
+            <div>
+              <h4>Custom Game Plan</h4>
+              <p>If we're a fit, we lay out exactly how we'd fix it -- timeline, team structure, and expected results. No generic proposals.</p>
+            </div>
+          </div>
+          <div class="daa-process-item">
+            <div class="daa-process-icon">&#128172;</div>
+            <div>
+              <h4>Ask Anything</h4>
+              <p>How we source? How do we integrate? What's the comp structure? How do we match culture? Get real answers.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="daa-diag-cta-box">
+        <h3>Book Your Strategy Call</h3>
+        <p>30 minutes. No commitment. Just the truth about what's holding your sales back.</p>
+        <div class="daa-form-field">
+          <label>First Name</label>
+          <input type="text" placeholder="Your first name">
+        </div>
+        <div class="daa-form-field">
+          <label>Email</label>
+          <input type="email" placeholder="you@yourcompany.com">
+        </div>
+        <div class="daa-form-field">
+          <label>Monthly Revenue</label>
+          <select>
+            <option value="">Select a range</option>
+            <option>Under $20K/month</option>
+            <option>$20K - $50K/month</option>
+            <option>$50K - $100K/month</option>
+            <option>$100K - $200K/month</option>
+            <option>$200K+/month</option>
+          </select>
+        </div>
+        <div class="daa-form-field">
+          <label>Biggest Sales Challenge</label>
+          <textarea placeholder="What's your biggest sales problem right now?"></textarea>
+        </div>
+        <div class="daa-form-field">
+          <button type="button" class="daa-btn-primary daa-form-submit">Book My Strategy Call</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TEAM -->
+<div class="daa-section" id="team">
+  <div class="daa-section-inner">
+    <div class="daa-section-label daa-text-center">Meet The Team</div>
+    <h2 class="daa-section-title daa-text-center">The People Running Your Sales Machine</h2>
+    <p class="daa-section-sub daa-mb-3 daa-text-center" style="margin: 0 auto 2.5rem;">We've been where you are. We know what it takes to break through the plateau and build a sales engine that compounds. Here's who you'll be working with.</p>
+    <div class="daa-team-grid">
+      <div class="daa-team-card daa-team-card-main">
+        <div class="daa-team-photo-wrap">
+          <img src="https://raw.githubusercontent.com/joelsalespossible/sales-possible-site/master/jacob-griak.png" alt="Jacob Griak" class="daa-team-photo">
+        </div>
+        <div class="daa-team-info">
+          <h3>Jacob Griak</h3>
+          <div class="daa-team-title">CEO & Sales Director</div>
+          <p>A sales director who specializes in rapidly scaling high ticket offers by identifying the constraint holding them back. Repeatedly added $200K+ in revenue within 90 days by optimizing sales systems, team performance, and offer execution. Over six years building and leading high performing sales teams. Focuses on turning inconsistent pipelines into predictable profit engines.</p>
+        </div>
+      </div>
+      <div class="daa-team-card">
+        <div class="daa-team-photo-wrap">
+          <img src="https://raw.githubusercontent.com/joelsalespossible/sales-possible-site/master/joel-yi.png" alt="Joel Yi" class="daa-team-photo">
+        </div>
+        <div class="daa-team-info">
+          <h3>Joel Yi</h3>
+          <div class="daa-team-title">Founder</div>
+          <p>Founder of Sales Possible, a remote high-ticket sales organization helping coaching brands scale through elite sales talent and systems. Helped build and scale multiple high-performing sales teams for 7- and 8-figure companies. Now focused on vision, partnerships, and long-term strategy while the company's day-to-day operations are led by CEO & Sales Director Jacob Griak.</p>
+        </div>
+      </div>
+      <div class="daa-team-card">
+        <div class="daa-team-photo-wrap">
+          <img src="https://raw.githubusercontent.com/joelsalespossible/sales-possible-site/master/jordan-kee.png" alt="Jordan Kee" class="daa-team-photo">
+        </div>
+        <div class="daa-team-info">
+          <h3>Jordan Kee</h3>
+          <div class="daa-team-title">CRO</div>
+          <p>Jordan Kee is a revenue architect for 7-8 figure founders stuck at $100K-$300K/month who want a straight-line path to $1M+ months. After scaling his first agency from $0 to $350K/month and helping clients add $50M+ in revenue, his mission is to help 10 founders hit $1M+/month and 100 add at least $100K in new monthly revenue by building sales engines that scale without them.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="daa-section-dark" id="faq">
+  <div class="daa-section-inner">
+    <div class="daa-section-label daa-text-center">FAQ</div>
+    <h2 class="daa-section-title daa-text-center">Common Questions</h2>
+    <div class="daa-faq-list">
+      <div class="daa-faq-item">
+        <div class="daa-faq-q">
+          <span>Is this just outsourced sales?</span>
+          <span class="daa-faq-icon">+</span>
+        </div>
+        <div class="daa-faq-a">No. Most outsourced sales firms are staffing agencies -- they find bodies, drop them in, and leave. We find the actual constraint. Is it setter quality? Closer training? Comp plan? Calendar management? Funnel leak somewhere? We figure out what's actually broken, build the fix, staff it with top talent, and manage the whole operation. We're not cogs in your wheel. We're the machine.</div>
+      </div>
+      <div class="daa-faq-item">
+        <div class="daa-faq-q">
+          <span>Who manages the salespeople?</span>
+          <span class="daa-faq-icon">+</span>
+        </div>
+        <div class="daa-faq-a">We do. Full management. We recruit, hire, train, and manage your sales team. If someone isn't performing, we replace them. If the comp plan isn't working, we fix it. You get a Chief Sales Officer-level operation without the $200K+ salary. We handle everything.</div>
+      </div>
+      <div class="daa-faq-item">
+        <div class="daa-faq-q">
+          <span>How do they integrate with our team?</span>
+          <span class="daa-faq-icon">+</span>
+        </div>
+        <div class="daa-faq-a">Our people are matched to your culture. Before we place anyone, we make sure they're aligned with your values, your voice, your brand. They're trained on your offer, your buyer personas, your process. Your existing team won't even think of them as outsourced -- they'll just think your sales team finally has the structure it's been missing.</div>
+      </div>
+      <div class="daa-faq-item">
+        <div class="daa-faq-q">
+          <span>What's the compensation structure?</span>
+          <span class="daa-faq-icon">+</span>
+        </div>
+        <div class="daa-faq-a">Performance-based. We get paid on results, not headcount. That means our incentives are perfectly aligned with yours. If your revenue doesn't grow, we don't get paid. We're not the right fit for everyone -- we only work with offer owners who are ready to scale and committed to executing.</div>
+      </div>
+      <div class="daa-faq-item">
+        <div class="daa-faq-q">
+          <span>What if we already have a sales team?</span>
+          <span class="daa-faq-icon">+</span>
+        </div>
+        <div class="daa-faq-a">We replace or augment whatever's there. That might mean we take over your existing team, rebuild it from scratch, or supplement it with additional talent where you have gaps. Most people think they have a setter problem when the real constraint is something else entirely. We figure out what's actually broken first.</div>
+      </div>
+      <div class="daa-faq-item">
+        <div class="daa-faq-q">
+          <span>How long does it take to see results?</span>
+          <span class="daa-faq-icon">+</span>
+        </div>
+        <div class="daa-faq-a">Most clients see meaningful movement within 90 days. The first 30 days is diagnosis and team building. By day 60, you have a functioning team that's been trained and is actively selling. By day 90, most clients are seeing significant revenue increases. We're not a quick fix. We're a machine that compounds over time.</div>
+      </div>
+      <div class="daa-faq-item">
+        <div class="daa-faq-q">
+          <span>What if it doesn't work?</span>
+          <span class="daa-faq-icon">+</span>
+        </div>
+        <div class="daa-faq-a">We'll tell you upfront if we don't think we're the right fit. We're selective about who we work with because we only succeed when you succeed. If we take you on, it's because we believe we can move the needle. If for any reason we're not a fit after the strategy call, we'll tell you and point you to someone who is.</div>
+      </div>
+      <div class="daa-faq-item">
+        <div class="daa-faq-q">
+          <span>How do you match our brand and culture?</span>
+          <span class="daa-faq-icon">+</span>
+        </div>
+        <div class="daa-faq-a">Before we place anyone, we do a deep dive on your brand voice, your buyer personas, your market positioning, and your team culture. Every person we place goes through training specifically for your offer. We run ongoing QA on calls to make sure they're representing your brand the way you would. Brand integrity isn't optional -- it's the point.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FINAL CTA -->
+<div class="daa-cta-section">
+  <h2>Stop Letting Sales Be<br>The Constraint On Your Growth</h2>
+  <p>You've built the offer. You've got the leads. Now it's time to build the machine that converts both into consistent, record-breaking revenue.</p>
+  <a href="#apply" class="daa-btn-primary">Book a Strategy Call</a>
+</div>
+
+<!-- FOOTER -->
+<div class="daa-footer">
+  <p>&copy; 2026 Sales Possible. Done For You Sales Agency. All rights reserved.</p>
+</div>
